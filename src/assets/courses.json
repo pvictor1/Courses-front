@@ -1,0 +1,8 @@
+[
+  {
+    "id": "1", "name": "Angular", "category": "Front-End"
+  },
+  {
+    "id": "2", "name": "JAVA", "category": "Back-End"
+  }
+]
