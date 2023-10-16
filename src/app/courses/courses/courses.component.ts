@@ -4,6 +4,7 @@ import { Course } from '../model/course';
 import { Observable, catchError, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -19,11 +20,13 @@ export class CoursesComponent implements OnInit{
     //CoursesService: CoursesService
 
 
-  displayedColumns = ['id', 'name', 'category']
+  displayedColumns = ['id', 'name', 'category', 'actions']
 
   constructor
   (private  coursesService: CoursesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
   ){
     this.courses$ = this.coursesService.list()
     .pipe(
@@ -46,4 +49,12 @@ export class CoursesComponent implements OnInit{
   ngOnInit(): void {
 
   }
+
+onAdd(){
+  this.router.navigate(['new'], {relativeTo: this.route})
+  console.log('bateu no add')
+}
+
+
+
 }
